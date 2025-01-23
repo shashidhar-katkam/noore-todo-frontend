@@ -1,0 +1,9 @@
+# dependencies
+/node_modules
+
+/.next/
+/out/
+
+# production
+/build
+next-env.d.ts
