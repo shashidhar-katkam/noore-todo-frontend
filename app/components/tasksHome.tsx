@@ -52,10 +52,14 @@ export default function TasksHome() {
 
     const handleDelete = async (id: number) => {
         try {
-            const response = await deleteTask(id);
+            const isConfirmed = confirm("Are you sure you want to delete this task?");
 
-            if (response?.status) {
-                setTasks(tasks?.filter((task) => task.id !== id));
+            if (isConfirmed) {
+                const response = await deleteTask(id);
+
+                if (response?.status) {
+                    setTasks(tasks?.filter((task) => task.id !== id));
+                }
             }
         } catch (error) {
             console.error('Error fetching tasks:', error);
